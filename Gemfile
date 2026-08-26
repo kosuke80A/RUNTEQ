@@ -127,6 +127,8 @@ group :development, :test do
   gem 'capistrano3-puma'
 end
 
+gem 'slim-rails'
+
 group :test do
   gem 'faker'
   gem 'fuubar'
