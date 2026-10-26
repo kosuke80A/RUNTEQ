@@ -37,6 +37,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_category
+    binding.pry
     @category = Category.find_by!(slug: params[:category_slug])
     @title = @category.name
   end
