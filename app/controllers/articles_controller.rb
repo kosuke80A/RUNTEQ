@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     if @category.present?
     @article = @category.articles.find_by!(slug: params[:article_slug])
     else
-    @article = Article.find_by!(slug: params[:article_slug])
+    @article = Article.find_by(slug: params[:article_slug])
     end
   end
 
