@@ -20,6 +20,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    puts "params[:article_slug] = #{params[:article_slug].inspect}"
+    puts "Article存在確認 = #{Article.where(slug: params[:article_slug]).exists?}"
+    # ...既存の処理
     #@category = Category.find_by(slug: params[:category_slug])
     #@article = @category.articles.find_by!(slug: params[:article_slug])
     @category = Category.find_by(slug: params[:category_slug])
@@ -27,7 +30,6 @@ class ArticlesController < ApplicationController
     @article = @category.articles.find_by!(slug: params[:article_slug])
     else
     @article = Article.find_by!(slug: params[:article_slug])
-    binding.pry
     end
   end
 
