@@ -20,8 +20,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @category = Category.find_by!(slug: params[:category_slug])
+    @category = Category.find_by(slug: params[:category_slug])
+    if @category.present?
     @article = @category.articles.find_by!(slug: params[:article_slug])
+    else
+    @article = Article.find_by(slug: params[:article_slug])
+    end
   end
 
   private
